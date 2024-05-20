@@ -1,4 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #F6F6F6;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
 .person-img {
     width: 42px;
     border-radius: 50%;
+}
+
+#category-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.hover-category {
+    transition: all 0.4s;
+}
+
+.hover-category:hover {
+    color: #5D5FEF;
+    border-bottom: 3px solid;
+}
+
+.news-info img {
+    border: 2px solid rgb(3, 228, 3);
+    width: 78px;
+    border-radius: 50%;
+}
+
+.news-info {
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-bottom-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star svg {
+    font-size: 30px;
 }
