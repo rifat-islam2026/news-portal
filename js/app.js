@@ -28,39 +28,39 @@ const loadNews = async categoryId => {
 };
 // display news 
 const displayNews = (news) => {
+    // spinner start 
+    toggleSpinner(true);
     // console.log(news);
     const newContainer = document.getElementById('news-container');
-    
+    newContainer.textContent = '';
     for (const post of news) {
-        // console.log(post);
+        // console.log(post.length);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('col');
         newsDiv.innerHTML = `
-            <div class="card">
+            <div class="card shadow ">
                     <img src="${post.image_url}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h4 class="card-title">${post.author ? post.author.name:'No name...'}</h4>
-                    <h5 class="card-title " >${post.title} </h5>
-                    <p class="card-text" id="post-details">${post.details}</p>
+                    <h4 class="card-title">${post.author ? post.author.name : 'No data found!'}</h4>
+                    <h6 class="card-title " >${post.title} </h6>
+                    <p class="card-text" id="post-details">${post.details.slice(0, 120)}</p>
                     
                     <div class="card-bottom-title">
                     <div class="news-info">
                        <img src="${post.author.img}" class="card-img-top" alt="">
-                       <div> <p>${post.author.name}</p> <p>${post.author.published_date}</p> </div>
+                       <div class="ms-2"> <h6>${post.author.name}</h6> <small class="text-secondary">${post.author.published_date}</small> </div>
                       </div>
 
                          <div class="total-view"><div class="d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                         <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
                          <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                        </svg> <span class="ms-2">${post.total_view ? post.total_view:'No view!'}</span> </div></div>
+                        </svg> <span class="ms-2">${post.total_view ? post.total_view : 'No data found!'}</span> </div></div>
 
-                    <div class="star">
+                    <div class="star" id="news-details">
                     <svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
                     </svg>
                       </div>
-
-
                           </div>
                     
                     </div>
@@ -68,9 +68,21 @@ const displayNews = (news) => {
         
         `;
         newContainer.appendChild(newsDiv);
-   }
+        // spinner stop 
+        toggleSpinner(false);
+    }
 
-}
+};
+// loader/spinner 
+const toggleSpinner = isLoading => {
+    const spinner = document.getElementById('spinner');
+    if (isLoading) {
+        spinner.classList.remove('d-none');
+    }
+    else {
+        spinner.classList.add('d-none');
+    }
+};
 
 loadCategoryItem(); 
     
