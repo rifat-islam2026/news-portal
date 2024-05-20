@@ -29,10 +29,10 @@
 
                     </ul>
                     <div class="d-flex align-items-center">
-                        <a class="nav-link me-4" href="#">
+                        <a id="news" class="nav-link me-4" href="#">
                             <h5>News</h5>
                         </a>
-                        <a class="nav-link" href="#">
+                        <a id="blog" class="nav-link" href="#">
                             <h5>Blog</h5>
                         </a>
                         <img src="https://i.pinimg.com/564x/be/b9/6b/beb96bfaf95c82d820e3b308dd9dd0f0.jpg"
@@ -64,7 +64,93 @@
                 </div>
             </div>
         </section>
+        <!-- news details / modal -->
+        <section>
+            <!-- Button trigger modal -->
 
+
+            <!-- Modal -->
+            <div class="modal fade" id="phoneDetailModal" tabindex="-1" aria-labelledby="phoneDetailModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="post-name"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="modal-body" class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BONUS TASK -->
+        <section>
+            <div id="questions" class="d-none">
+                <div class="my-4">
+                    <h3>1. What is the difference between var let constant?</h3>
+                    <span><small>In JavaScript, var, let, and const are used to declare variables, but they have
+                            different properties and behaviors.
+                            Here's a detailed explanation of each:</small></span>
+                    <p class="pt-4">Differences between var, let, and const:
+                        Variables declared with var can be reassigned. Variables declared with let can be reassigned.
+                        Variables declared with
+                        const cannot be reassigned. Variables declared with var are hoisted, which means they can be
+                        accessed before they are
+                        declared</p>
+                </div>
+
+                <div class="py-4">
+                    <h3>2. User
+                        Difference between arrow function and regular function?</h3>
+                    <span><small>In JavaScript, arrow functions and regular functions (also known as
+                            function
+                            declarations and function expressions)
+                            differ in several key ways, particularly in terms of syntax, this binding, and use cases.
+                            Here’s a detailed comparison:</small></span>
+
+                    <p class="pt-4">Arrow functions have a shorter syntax:
+                        Arrow functions have a shorter syntax. Making them useful in writing one-line blocks of code.
+                        Normal functions are
+                        better at handling logic that requires multiple expressions. A function that uses recursion for
+                        calculating the
+                        factorial of a number is what we need.</p>
+                </div>
+
+                <div class="py-4">
+                    <h3>3. Map,ForEach,Filter,Find, What is the difference between these four?</h3>
+                    <span><small>In JavaScript, map, forEach, filter, and find are array methods that allow you to
+                            perform different operations on
+                            arrays. Here’s a detailed explanation of each method, including their purposes and
+                            differences:</small></span>
+                    <p class="pt-4">Return Value
+                        map() will return a new array as per the conditions applied. forEach() will not return anything.
+                        forEach() returns
+                        undefined. filter() method will return an array of matching elements else will return an empty
+                        array if no matching
+                        happens.</p>
+                </div>
+                <div class="py-4">
+                    <h3>4. Why would you use a template string?</h3>
+                    <span><small>Template strings, also known as template literals, are a feature in JavaScript that
+                            offer several advantages over
+                            traditional string concatenation methods. They are defined using backticks (`) instead of
+                            single (') or double (")
+                            quotes and support embedding expressions and multi-line strings in a more readable and
+                            concise way. Here are some
+                            reasons why you would use template strings:</small></span>
+                    <p class="pt-4">Template literals, also known as template strings, are a feature in JavaScript that
+                        allow for easier string
+                        interpolation and multi-line strings. They are denoted by backticks (`) instead of single or
+                        double quotes.</p>
+                </div>
+
+            </div>
+        </section>
     </main>
     <!-- bootstrap script cdn -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
