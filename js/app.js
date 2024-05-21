@@ -1,10 +1,13 @@
-
 // load Category
     const loadCategoryItem = async () => {
-        const url = `https://openapi.programming-hero.com/api/news/categories`;
-        const res = await fetch(url);
-        const data = await res.json();
-        displayCategoryItem(data.data.news_category);
+        try {
+            const url = `https://openapi.programming-hero.com/api/news/categories`;
+            const res = await fetch(url);
+            const data = await res.json();
+            displayCategoryItem(data.data.news_category);
+        } catch (error) {
+            console.error("Failed to load categories", error);
+        }
     };
     // display Category
     const categoryContainer = document.getElementById('category-container');
@@ -21,10 +24,15 @@
     };
     // load news 
 const loadNews = async categoryId => {
-    const url = ` https://openapi.programming-hero.com/api/news/category/${categoryId}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNews(data.data);
+    try {
+        const url = ` https://openapi.programming-hero.com/api/news/category/${categoryId}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNews(data.data);
+    }
+     catch (error) {
+        console.error("Failed to load categories", error);
+    }
 };
 // display news 
 const newContainer = document.getElementById('news-container');
@@ -84,10 +92,15 @@ const toggleSpinner = isLoading => {
 };
 // load news details 
 const loadNewsDetails = async (news_id) => {
-    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNewsDetails(data.data[0]);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNewsDetails(data.data[0]);
+    }
+    catch (error) {
+        console.error("Failed to load categories", error);
+    }
 };
 
 // display news details 
