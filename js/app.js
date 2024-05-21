@@ -27,14 +27,13 @@ const loadNews = async categoryId => {
     displayNews(data.data);
 };
 // display news 
+const newContainer = document.getElementById('news-container');
 const displayNews = (news) => {
     // spinner start 
     toggleSpinner(true);
-    // console.log(news);
-    const newContainer = document.getElementById('news-container');
     newContainer.textContent = '';
     for (const post of news) {
-        // console.log(post.length);
+        // console.log(post.length = [0]);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('col');
         newsDiv.innerHTML = `
@@ -42,8 +41,8 @@ const displayNews = (news) => {
                     <img src="${post.image_url}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h4 class="card-title">${post.author ? post.author.name : 'No data found!'}</h4>
-                    <h6 class="card-title " >${post.title} </h6>
-                    <p class="card-text" id="post-details">${post.details.slice(0, 120)}</p>
+                    <p class="card-title fw-midium" >${post.title} </p> <br>
+                    <small class="card-text" id="post-details">${post.details.slice(0, 120)}...</small>
                     
                     <div class="card-bottom-title">
                     <div class="news-info">
@@ -105,11 +104,14 @@ const displayNewsDetails = (post) => {
 // Blog / Question
 document.getElementById('blog').addEventListener('click', function () {
     categoryContainer.innerHTML = '';
+    newContainer.innerHTML = '';
     toggleBlog(true);
 });
 document.getElementById('news').addEventListener('click', function () {
     loadCategoryItem();
     toggleBlog(false);
+    categoryContainer.innerHTML = '';
+    
 });
 const toggleBlog = isLoading => {
     const questions = document.getElementById('questions');
@@ -121,5 +123,6 @@ const toggleBlog = isLoading => {
     }
 };
 
- 
+loadCategoryItem();
+
     
